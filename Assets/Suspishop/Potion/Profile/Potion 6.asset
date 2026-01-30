@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8027c500998fec64e838ca3266418f85, type: 3}
-  m_Name: Monster 1
+  m_Script: {fileID: 11500000, guid: a564e3bbfe208fa40975a4575f98426a, type: 3}
+  m_Name: Potion 6
   m_EditorClassIdentifier: 
-  baseGold: 10
-  monsterLevel: 1
+  potionId: 6
   sprite: {fileID: 0}

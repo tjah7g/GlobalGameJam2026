@@ -13,6 +13,7 @@ public class MonsterController : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
 
         Instance = this;
@@ -21,12 +22,13 @@ public class MonsterController : MonoBehaviour
 
     private void Start()
     {
-        currentMonster = GetMonster(0);
+        currentMonster = GetRandomMonster();
     }
 
-    public MonsterData GetMonster(int MonsterLevel)
+    public MonsterData GetRandomMonster()
     {
-        return monsterDatas[MonsterLevel];
+        int randomIndex = Random.Range(0, monsterDatas.Count);
+        return monsterDatas[randomIndex];
     }
 
     public void FinishService()
@@ -41,7 +43,7 @@ public class MonsterController : MonoBehaviour
     //Test Button
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             FinishService();
         }
@@ -50,6 +52,4 @@ public class MonsterController : MonoBehaviour
     {
         //animasi monster out
     }
-
-    
 }
