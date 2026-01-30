@@ -16,7 +16,7 @@ public class CutscenesController : MonoBehaviour
     private bool onTransition = false;
     private bool scene1Displayed = true;
     private bool isFinished = false;
-    [SerializeField] private SceneManagement sceneManagement;
+    [SerializeField] private SceneLoader sceneManagement;
     [SerializeField] private string sceneName;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,7 +28,7 @@ public class CutscenesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !onTransition)
+        if (Input.anyKey && !onTransition)
         {
             Debug.Log(isFinished);
             if (isFinished == false)
@@ -37,7 +37,7 @@ public class CutscenesController : MonoBehaviour
             }
             else
             {
-                sceneManagement.LoadScene(sceneName);
+                sceneManagement.Load(sceneName);
             }
         }
     }
@@ -75,7 +75,7 @@ public class CutscenesController : MonoBehaviour
         
             if (nextIndex == 0)
             {
-                sceneManagement.LoadScene(sceneName);
+                sceneManagement.Load(sceneName);
                 onTransition = false;
                 yield break;
             }
