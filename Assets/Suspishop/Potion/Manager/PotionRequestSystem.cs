@@ -16,6 +16,7 @@ public class PotionRequestSystem : MonoBehaviour
     void Start()
     {
         requestedItemCount = MonsterController.Instance.currentMonster.monsterLevel;
+        Debug.Log(requestedItemCount);
         RandomMonsterReq();
     }
 
@@ -28,8 +29,8 @@ public class PotionRequestSystem : MonoBehaviour
     {
         for (int i = 0; i < requestedItemCount; i++)
         {
-            int itemSelected = Random.RandomRange(0, potions.Length);
-            monsterReq.Add(itemSelected);
+            int itemSelected = Random.Range(0, potions.Length);
+            monsterReq.Add(itemSelected + 1);
         }
     }
 }

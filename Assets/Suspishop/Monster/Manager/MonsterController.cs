@@ -29,5 +29,27 @@ public class MonsterController : MonoBehaviour
         return monsterDatas[MonsterLevel];
     }
 
+    public void FinishService()
+    {
+        MaskData currentMask = MaskManager.Instance.selectedMask;
+        ServiceResult result = EncounterCalculator.Calculate(currentMask, currentMonster);
+        ScoreManager.Instance.ApplyServiceResult(result);
 
+        //MonsterOut();
+    }
+
+    //Test Button
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            FinishService();
+        }
+    }
+    public void MonsterOut()
+    {
+        //animasi monster out
+    }
+
+    
 }

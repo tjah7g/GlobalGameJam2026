@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public enum MaskResult
 {
     Weak,
@@ -10,14 +9,23 @@ public enum MaskResult
 }
 public class MaskManager : MonoBehaviour
 {
-    public static MaskManager Instance { get; set; }
+    public static MaskManager Instance { get; private set; }
+
+    public List<MaskData> masks = new();
 
     public MaskData selectedMask;
-    void Awake()
+    private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
-    
+
     public MaskResult EvaluateMask()
     {
         int monsterStrength = MonsterController.Instance.currentMonster.monsterLevel;

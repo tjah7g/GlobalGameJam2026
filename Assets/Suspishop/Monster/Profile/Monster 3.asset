@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8027c500998fec64e838ca3266418f85, type: 3}
   m_Name: Monster 3
   m_EditorClassIdentifier: 
+  baseGold: 10
   monsterLevel: 3
   sprite: {fileID: 21300000, guid: ea8f56c43254d41728f5ac4e8299b6c9, type: 3}
