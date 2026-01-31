@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Potion 5
   m_EditorClassIdentifier: 
   potionId: 5
-  sprite: {fileID: 0}
+  sprite: {fileID: 7741507832897485927, guid: 37dac08a99c666a4a8ac1a13d3381881, type: 3}

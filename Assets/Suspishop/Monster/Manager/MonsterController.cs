@@ -6,7 +6,9 @@ public class MonsterController : MonoBehaviour
     public static MonsterController Instance { get; set; }
 
     public List<MonsterData> monsterDatas = new();
-    public MonsterData currentMonster;
+
+    [field: SerializeField]
+    public MonsterData currentMonster { get; private set; }
 
     void Awake()
     {
@@ -22,7 +24,7 @@ public class MonsterController : MonoBehaviour
 
     private void Start()
     {
-        currentMonster = GetRandomMonster();
+        
     }
 
     public MonsterData GetRandomMonster()
@@ -31,25 +33,18 @@ public class MonsterController : MonoBehaviour
         return monsterDatas[randomIndex];
     }
 
-    public void FinishService()
+    public MonsterData GetMonsterByLevel(int level)
     {
-        MaskData currentMask = MaskManager.Instance.selectedMask;
-        ServiceResult result = EncounterCalculator.Calculate(currentMask, currentMonster);
-        ScoreManager.Instance.ApplyServiceResult(result);
-
-        //MonsterOut();
+        return monsterDatas[level];
     }
 
-    //Test Button
-    private void Update()
+    public void SetCurrentMonster(MonsterData monsterData)
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            FinishService();
-        }
+        currentMonster = monsterData;
     }
+
     public void MonsterOut()
     {
-        //animasi monster out
+        currentMonster = null;
     }
 }

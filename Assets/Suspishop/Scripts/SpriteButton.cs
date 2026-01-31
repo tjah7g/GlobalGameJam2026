@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider2D))]
-public class SubmitOrderButton : MonoBehaviour
+public class SpriteButton : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public Color normalColor = Color.white;
@@ -16,7 +16,7 @@ public class SubmitOrderButton : MonoBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OMouseDown()
+    private void OnMouseDown()
     {
         spriteRenderer.color = pressedColor;
     }

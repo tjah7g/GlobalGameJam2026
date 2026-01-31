@@ -6,4 +6,5 @@ public class MaskData : ScriptableObject
     public int durability;
     public int maskLevel;
     public Sprite sprite;
+    public Sprite spriteHover;
 }

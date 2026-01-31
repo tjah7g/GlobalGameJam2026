@@ -15,8 +15,13 @@ public static class EncounterCalculator
     };
     public static ServiceResult Calculate(MaskData mask, MonsterData monster)
     {
-        float susGrowth = CalculateSusGrowth(mask.maskLevel, monster.monsterLevel);
-        int gold = CalculateGold(monster.baseGold, mask.maskLevel, monster.monsterLevel);
+        int maskLevel = 0;
+
+        if (mask != null)
+            maskLevel = mask.maskLevel;
+
+        float susGrowth = CalculateSusGrowth(maskLevel, monster.monsterLevel);
+        int gold = CalculateGold(monster.baseGold, maskLevel, monster.monsterLevel);
 
         return new ServiceResult
         {

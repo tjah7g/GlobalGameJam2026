@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   durability: 3
   maskLevel: 1
-  sprite: {fileID: 0}
+  sprite: {fileID: 9034317297066443963, guid: 8530d8554a8d9e6428f9e1003c75d67f, type: 3}
+  spriteHover: {fileID: 6407742585562103775, guid: f3ab9af180acf2546b0242a683b354e5, type: 3}

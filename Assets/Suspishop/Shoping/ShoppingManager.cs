@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework.Interfaces;
 using UnityEngine;
 
-public class ShopingManager : MonoBehaviour
+public class ShoppingManager : MonoBehaviour
 {
-    public static ShopingManager Instance { get; set; }
+    public static ShoppingManager Instance { get; set; }
 
     public List<int> playerSubmit = new();
     public List<int> monsterRequest = new();
@@ -30,7 +31,7 @@ public class ShopingManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(GetCurrentMonster());
+        //StartCoroutine(GetCurrentMonster());
     }
 
     #endregion
@@ -105,22 +106,44 @@ public class ShopingManager : MonoBehaviour
 
     #endregion
 
+    public enum ShoppingResult
+    {
+        Success,
+        Fail
+    }
+
     void Win()
     {
         Debug.Log("Players wins!");
+        ResolveTransaction(ShoppingResult.Success);
     }
 
     void Lose()
     {
         Debug.Log("Players lose!");
+        ResolveTransaction(ShoppingResult.Fail);
+    }
+
+    void ResolveTransaction(ShoppingResult shoppingResult)
+    {
+        GameResolver.Resolve(shoppingResult);
     }
 
     #region Clearing Orders
+
+    public void ClearSubmission()
+    {
+        playerSubmit.Clear();
+
+        PotionManager.Instance.CancelSubmission();
+    }
 
     public void ClearOrders()
     {
         playerSubmit.Clear();
         monsterRequest.Clear();
+
+        PotionManager.Instance.CancelSubmission();
     }
 
     #endregion

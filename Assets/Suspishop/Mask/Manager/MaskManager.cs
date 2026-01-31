@@ -13,7 +13,9 @@ public class MaskManager : MonoBehaviour
 
     public List<MaskData> masks = new();
 
-    public MaskData selectedMask;
+    [field: SerializeField]
+    public MaskData selectedMask { get; private set; }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -41,5 +43,10 @@ public class MaskManager : MonoBehaviour
         }
 
         return MaskResult.Match;
+    }
+
+    public void SetSelectedMask(MaskData maskData)
+    {
+        selectedMask = maskData;
     }
 }

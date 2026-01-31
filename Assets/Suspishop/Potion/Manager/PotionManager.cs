@@ -45,10 +45,22 @@ public class PotionManager : MonoBehaviour
         {
             if (potion.potionStatus == PotionStatus.Selected)
             {
-                ShopingManager.Instance.SetPlayerSubmit(potion.potionId);
+                ShoppingManager.Instance.SetPlayerSubmit(potion.potionId);
             }
         }
 
         onPotionSubmitted?.Invoke();
+    }
+
+    public void CancelSubmission()
+    {
+        foreach (var potion in potions)
+        {
+            if (potion.potionStatus == PotionStatus.Selected)
+            {
+                potion.potionStatus = PotionStatus.Available;
+                potion.SetPotionBacktoOriginalPos();
+            }
+        }
     }
 }

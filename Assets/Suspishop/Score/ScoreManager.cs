@@ -5,51 +5,55 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance {  get; private set; }
 
-    public int gold;
-    public float suspicion;
+    [field: SerializeField]
+    public int gold { get; private set; }
 
-    public event Action<int> OnSuspicionChanged;
-    public event Action<int> OnGoldChanged;
+    [field: SerializeField]
+    public float suspicion { get; private set; }
+
+    //public event Action<int> OnSuspicionChanged;
+    //public event Action<int> OnGoldChanged;
 
     private void Awake()
     {
         Instance = this;
     }
-    public void ResolveEncounter(int maskLevel, int monsterLevel)
-    {
-        maskLevel = MaskManager.Instance.selectedMask.maskLevel;
-        monsterLevel = MonsterController.Instance.currentMonster.monsterLevel;
 
-        float susGrowth = EncounterCalculator.CalculateSusGrowth(maskLevel, monsterLevel);
-        float goldBonus = EncounterCalculator.CalculateGoldBonus(maskLevel, monsterLevel);
+    //public void ResolveEncounter(int maskLevel, int monsterLevel)
+    //{
+    //    maskLevel = MaskManager.Instance.selectedMask.maskLevel;
+    //    monsterLevel = MonsterController.Instance.currentMonster.monsterLevel;
 
-        ApplySuspicion(susGrowth);
-        ApplyGoldBonus(goldBonus);
-    }
+    //    float susGrowth = EncounterCalculator.CalculateSusGrowth(maskLevel, monsterLevel);
+    //    float goldBonus = EncounterCalculator.CalculateGoldBonus(maskLevel, monsterLevel);
 
-    private void ApplySuspicion(float value)
-    {
-        if (value <= 0f)
-        {
-            return;
-        }
+    //    ApplySuspicion(susGrowth);
+    //    ApplyGoldBonus(goldBonus);
+    //}
 
-        suspicion = Mathf.Clamp01(suspicion + value);
-        OnSuspicionChanged?.Invoke((int)suspicion);
-    }
+    //private void ApplySuspicion(float value)
+    //{
+    //    if (value <= 0f)
+    //    {
+    //        return;
+    //    }
 
-    private void ApplyGoldBonus(float bonusMultiplier)
-    {
-        if(bonusMultiplier <= 0f)
-        {
-            return;
-        }
-        int baseGold = 10;
-        int bonusGold = Mathf.RoundToInt(baseGold * bonusMultiplier);
+    //    suspicion = Mathf.Clamp01(suspicion + value);
+    //    OnSuspicionChanged?.Invoke((int)suspicion);
+    //}
 
-        gold += bonusGold;
-        OnGoldChanged?.Invoke(gold);
-    }
+    //private void ApplyGoldBonus(float bonusMultiplier)
+    //{
+    //    if(bonusMultiplier <= 0f)
+    //    {
+    //        return;
+    //    }
+    //    int baseGold = 10;
+    //    int bonusGold = Mathf.RoundToInt(baseGold * bonusMultiplier);
+
+    //    gold += bonusGold;
+    //    OnGoldChanged?.Invoke(gold);
+    //}
 
     public void ApplyServiceResult(ServiceResult result)
     {
@@ -59,9 +63,23 @@ public class ScoreManager : MonoBehaviour
         Debug.Log($"Service done → Gold +{result.goldEarned}, Sus +{result.suspicionGrowth}");
     }
 
-    //AddGold
-    //SubtractGold
+    public void AddGold(int amount)
+    {
+        gold += amount;
+    }
 
-    //AddSuspicion
-    //SubtractSuspicion
+    public void SubtractGold(int amount)
+    {
+        gold -= amount;
+    }
+
+    public void AddSuspicion(float amount)
+    {
+        suspicion += amount;
+    }
+
+    public void SubtractSuspicion(float amount)
+    {
+        suspicion -= amount;
+    }
 }
