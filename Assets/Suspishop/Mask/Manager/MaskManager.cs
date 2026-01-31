@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum MaskResult
 {
@@ -15,6 +16,8 @@ public class MaskManager : MonoBehaviour
 
     [field: SerializeField]
     public MaskData selectedMask { get; private set; }
+
+    public event System.Action<MaskData> OnMaskChanged;
 
     private void Awake()
     {
@@ -48,5 +51,6 @@ public class MaskManager : MonoBehaviour
     public void SetSelectedMask(MaskData maskData)
     {
         selectedMask = maskData;
+        OnMaskChanged?.Invoke(maskData);
     }
 }
