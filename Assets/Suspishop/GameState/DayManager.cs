@@ -38,6 +38,14 @@ public class DayManager : MonoBehaviour
         ShoppingManager.Instance.ClearOrders();
         Debug.Log("Monster Served!");
 
+        var sm = ScoreManager.Instance;
+
+        if (sm.suspicion >= 1)
+        {
+            sm.SubtractSuspicion(sm.suspicion);
+            sm.SubtractGold(20);
+        }
+
         if (monstersServed >= monstersPerDay)
         {
             EndDay();
@@ -53,7 +61,7 @@ public class DayManager : MonoBehaviour
     {
         Debug.Log("Day " + currentDay + " End!");
 
-        if(currentDay <= maxDay)
+        if(currentDay < maxDay)
         {
             currentDay++;
             StartNewDay();
