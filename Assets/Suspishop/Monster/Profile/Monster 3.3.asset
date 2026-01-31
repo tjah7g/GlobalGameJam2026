@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8027c500998fec64e838ca3266418f85, type: 3}
-  m_Name: Monster 2
+  m_Name: Monster 3.3
   m_EditorClassIdentifier: 
   baseGold: 10
-  monsterLevel: 2
-  sprite: {fileID: 0}
+  monsterLevel: 3
+  sprite: {fileID: -3935494217762975944, guid: 21dfa3f7705e9b543b2a073b9fa25c07, type: 3}
+  spriteSiluet: {fileID: 1870146004802962940, guid: d6046b512ad31b94ca666d7569a203b9, type: 3}

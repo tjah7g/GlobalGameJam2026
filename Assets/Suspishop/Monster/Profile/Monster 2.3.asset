@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8027c500998fec64e838ca3266418f85, type: 3}
+  m_Name: Monster 2.3
+  m_EditorClassIdentifier: 
+  baseGold: 7
+  monsterLevel: 2
+  sprite: {fileID: 3538756007135472794, guid: 29071f212a3413f45bd147c906520a7f, type: 3}
+  spriteSiluet: {fileID: -5043798828387587241, guid: aeea51b7b45fe0148a59f07f0667f5f2, type: 3}
