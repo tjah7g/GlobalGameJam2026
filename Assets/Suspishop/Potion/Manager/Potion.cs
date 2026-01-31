@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public enum PotionStatus
@@ -39,7 +40,7 @@ public class Potion : MonoBehaviour
 
     public void SetPotionBacktoOriginalPos()
     {
-        this.transform.position = initialPosition;
+        this.transform.DOMove(initialPosition, .2f);
         this.transform.localScale = initialSize;
     }
 }

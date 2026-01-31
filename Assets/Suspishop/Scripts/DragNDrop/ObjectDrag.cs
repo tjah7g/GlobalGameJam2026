@@ -1,4 +1,6 @@
 using UnityEngine;
+using DG.Tweening;
+using DG.Tweening.Core;
 
 public class ObjectDrag : MonoBehaviour
 {
@@ -47,6 +49,7 @@ public class ObjectDrag : MonoBehaviour
 
         if (hitCollider != null && hitCollider.TryGetComponent(out IObjectDropArea objectDropArea))
         {
+            transform.DOShakeRotation(.2f, 30, 10, 10, true);
             objectDropArea.OnObjectDrop(this);
         }
         else
