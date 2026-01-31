@@ -9,11 +9,14 @@ public class ObjectDrag : MonoBehaviour
     private Vector3 dragOffset;
     private Collider2D coll;
     private Vector3 startDragPos;
+    private Vector3 initialSize;
 
     private void Start()
     {
         zDistance = Mathf.Abs(cam.transform.position.z - transform.position.z);
         coll = GetComponent<Collider2D>();
+
+        initialSize = transform.localScale;
     }
 
     private Vector3 GetMousePosition()
@@ -27,6 +30,9 @@ public class ObjectDrag : MonoBehaviour
     private void OnMouseDrag()
     {
         transform.position = Vector3.MoveTowards(transform.position, GetMousePosition() + dragOffset, speed * Time.deltaTime);
+
+        // HARDCODE KHUSUS POTION (BELUM DIRAPIKAN)
+        transform.localScale = new Vector3(.5f, .5f, 1f);
     }
     private void OnMouseDown()
     {
@@ -46,6 +52,7 @@ public class ObjectDrag : MonoBehaviour
         else
         {
             transform.position = startDragPos;
+            transform.localScale = initialSize;
         }
     }
 }

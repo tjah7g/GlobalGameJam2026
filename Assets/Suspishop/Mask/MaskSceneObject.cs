@@ -13,6 +13,11 @@ public class MaskSceneObject : MonoBehaviour
         spriteRenderer.sprite = maskData.sprite;
     }
 
+    private void OnMouseDown()
+    {
+        MaskManager.Instance.SetSelectedMask(maskData);
+    }
+
     private void OnMouseEnter()
     {
         spriteRenderer.sprite = maskData.spriteHover;

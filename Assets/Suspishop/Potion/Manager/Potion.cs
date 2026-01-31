@@ -12,6 +12,7 @@ public class Potion : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public PotionStatus potionStatus;
     Vector3 initialPosition;
+    Vector3 initialSize;
 
     void Awake()
     {
@@ -22,6 +23,7 @@ public class Potion : MonoBehaviour
     private void Start()
     {
         initialPosition = transform.position;
+        initialSize = transform.localScale;
     }
 
     public void SetupPotion(int id, Sprite sprite)
@@ -38,5 +40,6 @@ public class Potion : MonoBehaviour
     public void SetPotionBacktoOriginalPos()
     {
         this.transform.position = initialPosition;
+        this.transform.localScale = initialSize;
     }
 }
