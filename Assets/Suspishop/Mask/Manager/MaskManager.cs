@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -52,5 +53,11 @@ public class MaskManager : MonoBehaviour
     {
         selectedMask = maskData;
         OnMaskChanged?.Invoke(maskData);
+        PlayMaskSFX();
+    }
+
+    void PlayMaskSFX()
+    {
+        SoundManager.PlaySound(SoundType.ChooseMaskSFX);
     }
 }

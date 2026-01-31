@@ -13,19 +13,52 @@ MonoBehaviour:
   m_Name: Sounds SO
   m_EditorClassIdentifier: 
   sounds:
-  - name: DoorSFX
+  - name: BookSFX
     volume: 1
-    mixer: {fileID: 0}
-    sounds: []
-  - name: PotionSFX
+    mixer: {fileID: 24300002, guid: 5e906520c76945043a7fa3e7a313313f, type: 2}
+    sounds:
+    - {fileID: 8300000, guid: 79bedffac7eea9e47907e9349e6f8e56, type: 3}
+  - name: KnockSFX
     volume: 1
-    mixer: {fileID: 0}
-    sounds: []
+    mixer: {fileID: 24300002, guid: 5e906520c76945043a7fa3e7a313313f, type: 2}
+    sounds:
+    - {fileID: 8300000, guid: 0580899fef4810f40b929c969f906850, type: 3}
+  - name: ChooseMaskSFX
+    volume: 1
+    mixer: {fileID: 24300002, guid: 5e906520c76945043a7fa3e7a313313f, type: 2}
+    sounds:
+    - {fileID: 8300000, guid: 2aa5c392d006530448ff40735c7af757, type: 3}
+  - name: PickUpMagnifierSFX
+    volume: 1
+    mixer: {fileID: 24300002, guid: 5e906520c76945043a7fa3e7a313313f, type: 2}
+    sounds:
+    - {fileID: 8300000, guid: c84c9d01a3ae8ee43b97dfcc9e6349fc, type: 3}
+  - name: DoorClosedSFX
+    volume: 1
+    mixer: {fileID: 24300002, guid: 5e906520c76945043a7fa3e7a313313f, type: 2}
+    sounds:
+    - {fileID: 8300000, guid: f1bead1c0de38ee4c8033f672d264808, type: 3}
+  - name: DoorOpenSFX
+    volume: 1
+    mixer: {fileID: 24300002, guid: 5e906520c76945043a7fa3e7a313313f, type: 2}
+    sounds:
+    - {fileID: 8300000, guid: b6ab3e8c5d03c374a9816fe63f720a1f, type: 3}
+  - name: PickUpPotionSFX
+    volume: 1
+    mixer: {fileID: 24300002, guid: 5e906520c76945043a7fa3e7a313313f, type: 2}
+    sounds:
+    - {fileID: 8300000, guid: 7446854eb7ac590488dbf6cc9b3111c5, type: 3}
   - name: ServeOrderSFX
     volume: 1
-    mixer: {fileID: 0}
-    sounds: []
+    mixer: {fileID: 24300002, guid: 5e906520c76945043a7fa3e7a313313f, type: 2}
+    sounds:
+    - {fileID: 8300000, guid: 0b06412c2c5fe234d824826188382497, type: 3}
   - name: CancelOrderSFX
     volume: 1
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: 5e906520c76945043a7fa3e7a313313f, type: 2}
     sounds: []
+  - name: ClickUIButton
+    volume: 1
+    mixer: {fileID: 24300002, guid: 5e906520c76945043a7fa3e7a313313f, type: 2}
+    sounds:
+    - {fileID: 8300000, guid: 7446854eb7ac590488dbf6cc9b3111c5, type: 3}

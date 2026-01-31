@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using UnityEngine;
 
 public class ObjectDragMagnifier : MonoBehaviour
@@ -34,7 +35,7 @@ public class ObjectDragMagnifier : MonoBehaviour
     private void OnMouseDrag()
     {
         transform.position = Vector3.MoveTowards(transform.position, GetMousePosition() + dragOffset, speed * Time.deltaTime);
-        
+
         spriteRenderer.sprite = newSprite;
     }
     private void OnMouseDown()
@@ -47,5 +48,10 @@ public class ObjectDragMagnifier : MonoBehaviour
         transform.position = startDragPos;
 
         spriteRenderer.sprite = startSprite;
+    }
+
+    void PlayPickUpSFX()
+    {
+        SoundManager.PlaySound(SoundType.PickUpMagnifierSFX);
     }
 }

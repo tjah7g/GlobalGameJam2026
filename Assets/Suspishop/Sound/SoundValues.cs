@@ -5,9 +5,15 @@ namespace SmallHedge.SoundManager
 {
     public enum SoundType
     {
-        DoorSFX,
-        PotionSFX,
+        BookSFX,
+        KnockSFX,
+        ChooseMaskSFX,
+        PickUpMagnifierSFX,
+        DoorClosedSFX,
+        DoorOpenSFX,
+        PickUpPotionSFX,
         ServeOrderSFX,
-        CancelOrderSFX
+        CancelOrderSFX,
+        ClickUIButton,
     }
 }

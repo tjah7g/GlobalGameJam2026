@@ -32,13 +32,14 @@ public class GameStateManager : MonoBehaviour
         ChangeState(GameState.Evaluating);
     }
 
-    public void EndDay()
+    public void EndState()
     {
         ChangeState(GameState.DayEnd);
 
+        bool isGoodEnding = true;
 
         // Penentuan ending disini
-        if (true)
+        if (isGoodEnding)
             SceneLoader.Instance.Load("EndingScene1");
         else
             SceneLoader.Instance.Load("EndingScene2");

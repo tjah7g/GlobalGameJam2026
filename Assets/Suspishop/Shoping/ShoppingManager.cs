@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework.Interfaces;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShoppingManager : MonoBehaviour
 {
@@ -14,6 +14,8 @@ public class ShoppingManager : MonoBehaviour
 
     int submittedItemCount;
     int requestedItemCount;
+
+    public UnityEvent submitPotion;
 
     #region Initialization
 
@@ -63,6 +65,8 @@ public class ShoppingManager : MonoBehaviour
             monsterRequest.Add(selectedItem);
             availablePotions.RemoveAt(randomIndex); // Remove to avoid duplicates
         }
+
+        RequestUI.Instance.RefreshUI(monsterRequest);
     }
 
     #endregion
@@ -116,12 +120,16 @@ public class ShoppingManager : MonoBehaviour
     {
         Debug.Log("Players wins!");
         ResolveTransaction(ShoppingResult.Success);
+
+        submitPotion?.Invoke();
     }
 
     void Lose()
     {
         Debug.Log("Players lose!");
         ResolveTransaction(ShoppingResult.Fail);
+
+        submitPotion?.Invoke();
     }
 
     void ResolveTransaction(ShoppingResult shoppingResult)
