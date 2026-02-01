@@ -19,9 +19,15 @@ public static class GameResolver
         // apply suspicion changes
         sm.AddSuspicion(result.suspicionGrowth);
 
+        if (result.suspicionGrowth != 0)
+            UIManager.Instance.ShakeSlider();
+
         // apply gold changes
         if (shoppingResult == ShoppingResult.Success)
+        {
             sm.AddGold(result.goldEarned);
+            UIManager.Instance.ShakeCoin();
+        }
         else
             sm.AddGold(0);
 

@@ -36,7 +36,7 @@ public class GameStateManager : MonoBehaviour
     {
 
         // Penentuan ending disini
-        if (ScoreManager.Instance.gold >= 105)
+        if (ScoreManager.Instance.gold >= 75)
             SceneLoader.Instance.Load("Ending_Good");
         else
             SceneLoader.Instance.Load("Ending_Bad");

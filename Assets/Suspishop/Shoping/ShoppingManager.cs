@@ -80,6 +80,9 @@ public class ShoppingManager : MonoBehaviour
 
     public void CompareSubmit()
     {
+        if (playerSubmit.Count == 0)
+            return;
+
         if (playerSubmit.Count != monsterRequest.Count)
         {
             Debug.Log("Submitted item count doesn't match request.");

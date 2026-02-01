@@ -44,25 +44,31 @@ public static class EncounterCalculator
 
     public static float CalculateSusGrowth(int maskLevel, int enemyLevel)
     {
-        int diff = maskLevel - enemyLevel;
 
-        if (diff == 0) return 0f;
+        if (maskLevel < enemyLevel)
+        {
+            int diff = maskLevel - enemyLevel;
 
-        if (diff == 1)
-            return 0.25f;
-        else
-            return 0.5f;
+            if (diff == 1)
+                return 0.34f;
+            else
+                return 0.34f;
+        }
+
+        return 0f;
     }
 
     public static float CalculateGoldBonus(int maskLevel, int enemyLevel)
     {
         int diff = maskLevel - enemyLevel;
 
-        if (diff <= 0)
-            return 0f;
+        if (maskLevel > enemyLevel)
+        {
+            return GoldBonusTable.TryGetValue(diff, out float bonus)
+                ? bonus
+                : 0f;
+        }
 
-        return GoldBonusTable.TryGetValue(diff, out float bonus)
-            ? bonus
-            : 0f;
+        return 0f;
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG;
+using DG.Tweening;
 
 public class DayManager : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class DayManager : MonoBehaviour
     public int currentDay = 1;
     public int maxDay = 3;
     public int monstersPerDay = 5;
+
+    private Transform cam;
 
     [SerializeField]
     private int monstersServed;
@@ -21,6 +25,7 @@ public class DayManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        cam = Camera.main.transform;
     }
 
     public void StartNewDay()
@@ -44,6 +49,7 @@ public class DayManager : MonoBehaviour
         {
             sm.SubtractSuspicion(sm.suspicion);
             sm.SubtractGold(20);
+            cam.DOShakePosition(.2f, 1f);
         }
 
         if (monstersServed >= monstersPerDay)
@@ -63,13 +69,21 @@ public class DayManager : MonoBehaviour
 
         if(currentDay < maxDay)
         {
-            currentDay++;
-            StartNewDay();
+            StartCoroutine(WaitBeforeNextDay());
         }
         else
         {
             GameStateManager.Instance.EndState();
         }
+    }
+
+    IEnumerator WaitBeforeNextDay()
+    {
+        currentDay++;
+        UIManager.Instance.TriggerDayTransition();
+        yield return new WaitForSeconds(3);
+
+        StartNewDay();
     }
 
     void SetupMonster()

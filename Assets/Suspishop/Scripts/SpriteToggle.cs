@@ -1,3 +1,4 @@
+using System.Collections;
 using SmallHedge.SoundManager;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,7 +9,7 @@ public class SpriteToggle : MonoBehaviour
     [SerializeField] private GameObject spriteB;
     public UnityEvent OnClicked;
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         PlayOpenSFX();
         CloseDoor();
@@ -18,6 +19,7 @@ public class SpriteToggle : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         spriteB.SetActive(true);
+
         PlayClosedSFX();
     }
 
